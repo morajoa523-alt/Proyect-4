@@ -1,0 +1,301 @@
+/* =========================
+   VARIABLES GLOBALES
+========================= */
+:root {
+  --primary: #032757;
+  --female: #BD004E;
+  --bg: #F2EBEB;
+  --text: #0A0000;
+  --white: #ffffff;
+
+  --sidebar-width: 200px;
+  --gap: 16px;
+  --radius: 8px;
+
+  --sidebar-bg: #032757;
+  --sidebar-hover: #334155;
+  --sidebar-text: #e5e7eb;
+}
+
+/* =========================
+   RESET BASE
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  position: fixed;
+  inset: 0 auto 0 0;
+
+  background-color: var(--sidebar-bg);
+  color: var(--white);
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 16px 0;
+  box-shadow: 3px 0 10px rgba(0,0,0,0.25);
+  z-index: 1000;
+}
+
+.sidebar h2 {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 16px;
+  margin: 4px 12px;
+
+  color: var(--sidebar-text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-radius: 6px;
+
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.sidebar a:hover {
+  background-color: var(--sidebar-hover);
+  color: var(--white);
+  transform: translateX(4px);
+}
+
+.sidebar a:last-child {
+  margin-top: auto;
+  background-color: var(--female);
+  color: var(--white);
+}
+
+.sidebar a:last-child:hover {
+  background-color: #a50043;
+}
+
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
+.content-base {
+  margin-left: var(--sidebar-width);
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 32px;
+}
+
+/* =========================
+   PANEL USUARIO
+========================= */
+.panel-user {
+  width: 100%;
+  max-width: 820px;
+
+  background-color: var(--white);
+  border-radius: var(--radius);
+  padding: 28px;
+
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+/* =========================
+   CABECERA PANEL
+========================= */
+.panel-header {
+  margin-bottom: 24px;
+}
+
+.panel-header h2 {
+  font-size: 1.35rem;
+  margin: 0 0 6px;
+  color: var(--primary);
+}
+
+.panel-header p {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* =========================
+   FORMULARIO
+========================= */
+.form-user {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.form-group input,
+.form-group select {
+  padding: 9px 12px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 0.85rem;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* =========================
+   ACCIONES
+========================= */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 9px 22px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  background-color: #9ca3af;
+  color: var(--white);
+}
+
+.btn-secondary:hover {
+  opacity: 0.9;
+}
+
+/* ===============================
+   SELECTOR DE AÑO - SIDEBAR
+================================ */
+.year-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: calc(100% - 16px); /* ⬅ evita overflow */
+  margin: 0 auto 12px;      /* ⬅ centrado real */
+
+  padding: 6px;
+  gap: 6px;
+
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+}
+
+/* INPUT AÑO */
+.year-selector input {
+  width: 48px;
+  min-width: 48px;
+
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.85rem;
+
+  background: transparent;
+  border: none;
+  color: #ffffff;
+
+  pointer-events: none;
+}
+
+/* BOTONES FLECHA */
+.year-btn {
+  width: 26px;
+  height: 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(255, 255, 255, 0.18);
+  border: none;
+  color: #ffffff;
+
+  font-size: 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.year-btn:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .content-base {
+    padding: 20px;
+  }
+
+  .panel-user {
+    padding: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .content-base {
+    margin-left: 0;
+    align-items: flex-start;
+  }
+}
